@@ -9,8 +9,8 @@ React + Vite 기반으로 개발되었습니다.
 
 2. 레포 클론
 ```bash
-git clone https://github.com/CURIO-BSSM/curio-frontend
-cd curio-frontend
+git clone https://github.com/CURIO-BSSM/curio-FE
+cd curio-FE
 ```
 
 ## branch
