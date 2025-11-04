@@ -31,7 +31,7 @@ body:
   - type: textarea
     attributes:
       label: 📄 로그
-      description: 로그 있으면 복붙해 주세요.
+      description: 로그 있으면 복붙해 주세요
       render: shell
     validations:
       required: false
