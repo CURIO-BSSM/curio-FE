@@ -1,6 +1,7 @@
 name: "✨ 새로운 기능"
 description: "새로운 기능 추가"
 labels: ["✨ feature"]
+title: "[✨ feature] "
 body:
   - type: textarea
     attributes:
