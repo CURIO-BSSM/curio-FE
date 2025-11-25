@@ -1,0 +1,159 @@
+/*
+ * QuizResult 컴포넌트용 CSS (image_1e0797.png 이미지 기반)
+ * (React 컴포넌트 구조는 변경하지 않음)
+ */
+
+
+/* 2. 메인 컨테이너 (연한 베이지색 배경) */
+.quiz-result-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem; /* 상하좌우 여백 */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 3. 제목 섹션 */
+.quiz-result-header {
+    text-align: center;
+    margin-bottom: 2rem; /* 카드와의 간격 */
+    max-width: 600px;
+    width: 100%;
+}
+
+.quiz-result-title {
+    font-size: 3rem; /* "퀴즈 완료!" */
+    line-height: 1;
+    font-weight: 800;
+    color: #333; /* 짙은 색상 */
+}
+
+.quiz-result-subtitle {
+    font-size: 1.25rem; /* "수고하셨습니다!" */
+    line-height: 1.75rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* 4. 결과 카드 컨테이너 (그림자 제거) */
+.quiz-result-card {
+    width: 100%;
+    max-width: 100rem; /* 이미지 중앙 카드 너비 */
+    background-color: #fff; /* bg-white */
+    border-radius: 0.5rem; /* rounded-lg */
+    overflow: hidden;
+    box-shadow: none; /* 그림자 제거 */
+}
+
+/* 5. 최종 점수 헤더 (노란색 배경) */
+.quiz-result-score-header {
+    background-color: #fef3c7; /* bg-yellow-100 */
+    text-align: center;
+    font-size: 1rem; /* text-base */
+    font-weight: 600;
+    color: #92400e; /* text-yellow-800 */
+    padding: 0.5rem 1rem;
+}
+
+/* 6. 점수 내용 영역 (패딩 조정) */
+.quiz-result-content {
+    padding: 2.5rem 1.5rem; /* 상하, 좌우 패딩 */
+    text-align: center;
+}
+
+/* 7. 점수 표시 (숫자 + '점') */
+.score-display-group {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.5rem; /* 좁은 간격 */
+    margin-bottom: 2.5rem; /* 통계 정보와의 간격 */
+}
+
+.score-number {
+    font-size: 4.5rem; /* 72px */
+    line-height: 1;
+    font-weight: 800;
+    color: #facc15; /* text-yellow-400 */
+}
+
+.score-unit {
+    font-size: 2rem; /* text-3xl */
+    line-height: 1.5;
+    font-weight: 700;
+    color: #333; /* 짙은 색상 */
+    margin-bottom: 0.5rem;
+}
+
+/* 8. 통계 그룹 (가로 정렬) */
+.stats-group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem; /* 항목 간 간격 (기존 gap-12) */
+    padding: 1rem 0;
+}
+
+/* 9. 통계 개별 아이템 */
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; /* 항목들이 공간을 균등하게 차지 */
+}
+
+/* 10. 통계 아이콘 (원형 배경 스타일 적용) */
+.stat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 50%; /* 원형 */
+    margin-bottom: 0.5rem;
+    
+    /* 아이콘 이미지 크기 강제 조정 (원 안에 작게 보이도록) */
+    padding: 0.5rem; /* 아이콘과 원 테두리 사이의 여백 */
+    box-sizing: border-box;
+}
+
+/* React 코드의 src 속성을 기반으로 배경색 적용 */
+.stat-icon[alt="correct"] {
+    background-color: #4CAF50; /* 녹색 */
+    /* 원본 아이콘이 흰색이 아닐 경우를 대비해 필터 사용 (선택적) */
+    /* filter: brightness(0) invert(1); */
+}
+.stat-icon[alt="wrong"] {
+    background-color: #F44336; /* 빨간색 */
+    /* filter: brightness(0) invert(1); */
+}
+.stat-icon[alt="total"] {
+    background-color: #FF9800; /* 주황색 */
+    /* filter: brightness(0) invert(1); */
+}
+
+
+/* 11. 통계 숫자 */
+.stat-number {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+/* 12. 통계 레이블 */
+.stat-label {
+    font-size: 0.875rem; /* text-sm */
+    color: #64748b;
+}
+
+
+/* 13. [숨김] 이미지에 없는 요소들 숨기기 */
+.score-progress-bar-bg,
+.stat-separator,
+.button-group {
+    display: none;
+}

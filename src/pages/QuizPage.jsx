@@ -4,6 +4,7 @@ import { fetchQuiz } from "../api/quizapi";
 import QuizHeader from "../components/Quiz/QuizHeader";
 import QuizQuestion from "../components/Quiz/QuizQuestion";
 import QuizOptions from "../components/Quiz/QuizOptions";
+import QuizResult from "../components/Quiz/QuizResult";
 import "../pages/QuizPage.css";
 
 function QuizPage() {
@@ -11,12 +12,15 @@ function QuizPage() {
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [wrongCount, setWrongCount] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showResult, setShowResult] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchQuiz(2)
+    fetchQuiz(1)
       .then((data) => {
         setQuiz(data);
         setLoading(false);
@@ -34,12 +38,23 @@ function QuizPage() {
   const handleSubmit = () => {
     setSubmitted(true);
     setTimeout(() => {
+      // check answer: selected is label like 'A', correct_answer is numeric (1-based)
+      const q = quiz.questions[currentIndex];
+      const labels = ["A", "B", "C", "D", "E"];
+      const selectedIndex = labels.indexOf(selected); // 0-based
+      const selectedOneBased = selectedIndex >= 0 ? selectedIndex + 1 : null;
+      if (selectedOneBased !== null && selectedOneBased === q.correct_answer) {
+        setCorrectCount((c) => c + 1);
+      } else {
+        setWrongCount((w) => w + 1);
+      }
+
       if (currentIndex < quiz.questions.length - 1) {
         setCurrentIndex((prev) => prev + 1);
         setSelected(null);
         setSubmitted(false);
       } else {
-        alert("모든 문제를 완료했습니다!");
+        setShowResult(true);
       }
     }, 3000);
   };
@@ -56,6 +71,33 @@ function QuizPage() {
   const cancelExit = () => {
     setShowModal(false);
   };
+
+  if (showResult) {
+    // compute score as percent of correct answers (out of 100)
+    const score = Math.round((correctCount / quiz.questions.length) * 100);
+    return (
+      <div className="quiz-page">
+        <div className="quiz-container">
+          <QuizResult
+            score={score}
+            correct={correctCount}
+            wrong={wrongCount}
+            total={quiz.questions.length}
+            onRetry={() => {
+              // reset quiz
+              setCurrentIndex(0);
+              setSelected(null);
+              setSubmitted(false);
+              setCorrectCount(0);
+              setWrongCount(0);
+              setShowResult(false);
+            }}
+            onHome={() => navigate('/home')}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="quiz-page">
