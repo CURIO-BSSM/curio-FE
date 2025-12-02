@@ -1,0 +1,4 @@
+/* Login page styles (placeholder) */
+.page.login-page { padding: 24px; }
+.auth-form { display:flex; flex-direction:column; gap:8px; max-width:320px }
+.auth-form input, .auth-form textarea { padding:8px; }

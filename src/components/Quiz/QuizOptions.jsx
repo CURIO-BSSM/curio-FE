@@ -2,7 +2,7 @@ import QuizButton from "./QuizButton";
 import "../style/QuizOptions.css";
 
 function QuizOptions({ options, correctAnswer, selected, submitted, onSelect }) {
-  const labels = ["A", "B", "C", "D"];
+  const labels = ["A", "B", "C", "D","E"];
 
   return (
     <div className="quiz-options">

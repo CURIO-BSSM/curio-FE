@@ -1,6 +1,6 @@
 .quiz-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   width: 100%;
   max-width: 1200px;

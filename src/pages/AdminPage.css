@@ -1,0 +1,4 @@
+/* Admin page styles (placeholder) */
+.page.admin-page { padding:24px }
+.admin-form { display:flex; flex-direction:column; gap:8px; max-width:600px }
+.admin-form input, .admin-form textarea { padding:8px }
