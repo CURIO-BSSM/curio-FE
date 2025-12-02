@@ -1,0 +1,25 @@
+.app-header{
+  width:100vw;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.header-inner{
+  margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:10px 10px;
+}
+.container{
+  display :flex; gap:100px;align-items: center; width: fit-content;
+}
+.logo{font-weight:800; font-size:1.1rem}
+.nav{display:flex; gap:50px; font-size : 20px;}
+.nav-link{color:#333; text-decoration:none}
+.actions{display:flex; gap:8px; align-items:center}
+.btn{padding:6px 10px; border-radius:6px; cursor:pointer; font-family: Paperlogy;}
+.btn-outline{border:1px solid #ccc; background:#fff}
+.btn-primary{background:#f6c84a; border:none}
+.btn-ghost{background:transparent; border:1px solid transparent}
+.user-info{display:flex; gap:8px; align-items:center; cursor:pointer}
+.avatar{width:34px; height:34px; border-radius:999px; background:#ddd; display:flex; align-items:center; justify-content:center; font-weight:700}
+.user-name{font-weight:600}
+.logo{
+  width: 125px;
+}

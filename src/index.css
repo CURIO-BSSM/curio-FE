@@ -1,8 +1,4 @@
 /* stylelint-disable at-rule-no-unknown */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   display: flex;
   width: 1920px;

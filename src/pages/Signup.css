@@ -1,0 +1,4 @@
+/* Signup page styles (placeholder) */
+.page.signup-page { padding: 24px; }
+.auth-form { display:flex; flex-direction:column; gap:8px; max-width:320px }
+.auth-form input, .auth-form textarea { padding:8px; }

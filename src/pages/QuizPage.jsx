@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { fetchQuiz } from "../api/quizapi";
-import QuizHeader from "../components/Quiz/QuizHeader";
-import QuizQuestion from "../components/Quiz/QuizQuestion";
-import QuizOptions from "../components/Quiz/QuizOptions";
-import QuizResult from "../components/Quiz/QuizResult";
+import { useNavigate, useLocation } from "react-router-dom";
+import { fetchQuiz, submitQuiz } from "../api";
+import { useAuth } from "../context/AuthContext";
+import { QuizHeader, QuizQuestion, QuizOptions, QuizResult } from "../components/Quiz";
 import "../pages/QuizPage.css";
 
 function QuizPage() {
@@ -14,19 +12,42 @@ function QuizPage() {
   const [submitted, setSubmitted] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
+  const [answers, setAnswers] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    fetchQuiz(1)
+    const params = new URLSearchParams(location.search);
+    const unitId = Number(params.get('unit') || 1);
+    fetchQuiz(unitId)
       .then((data) => {
         setQuiz(data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [location.search]);
+
+  const { user } = useAuth();
+
+  // When quiz finishes, submit answers to backend if available
+  useEffect(() => {
+    if (!showResult) return;
+    (async () => {
+      try {
+        const payload = {
+          user_id: user ? user.id : null,
+          answers,
+        };
+        await submitQuiz(payload);
+      } catch (err) {
+        // ignore submit errors for now
+        console.warn('submitQuiz failed', err);
+      }
+    })();
+  }, [showResult, answers, user]);
 
   if (loading) return <div className="loading">로딩 중...</div>;
   if (!quiz) return <div className="error">문제를 불러오지 못했습니다.</div>;
@@ -43,6 +64,8 @@ function QuizPage() {
       const labels = ["A", "B", "C", "D", "E"];
       const selectedIndex = labels.indexOf(selected); // 0-based
       const selectedOneBased = selectedIndex >= 0 ? selectedIndex + 1 : null;
+      // record answer for submission later
+      setAnswers((prev) => [...prev, { question_id: q.id, selected_answer: selectedOneBased }]);
       if (selectedOneBased !== null && selectedOneBased === q.correct_answer) {
         setCorrectCount((c) => c + 1);
       } else {
@@ -58,6 +81,9 @@ function QuizPage() {
       }
     }, 3000);
   };
+
+  // When quiz finishes, submit answers to backend if available
+  
 
   const handleExitClick = () => {
     setShowModal(true);
