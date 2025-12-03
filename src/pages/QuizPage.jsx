@@ -16,6 +16,7 @@ function QuizPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [serverScore, setServerScore] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,14 +38,23 @@ function QuizPage() {
     if (!showResult) return;
     (async () => {
       try {
+        const params = new URLSearchParams(location.search);
+        const unitId = Number(params.get('unit') || 1);
         const payload = {
           user_id: user ? user.id : null,
+          unit_id: unitId,
           answers,
         };
-        await submitQuiz(payload);
+        console.log('Submitting answers:', JSON.stringify(payload, null, 2));
+        const response = await submitQuiz(payload);
+        console.log('Server response:', response);
+        // capture server-side score if available
+        if (response && typeof response.score !== 'undefined') {
+          setServerScore(response.score);
+        }
       } catch (err) {
-        // ignore submit errors for now
-        console.warn('submitQuiz failed', err);
+        console.error('submitQuiz failed', err);
+        // continue with client-side score on error
       }
     })();
   }, [showResult, answers, user]);
@@ -99,13 +109,14 @@ function QuizPage() {
   };
 
   if (showResult) {
-    // compute score as percent of correct answers (out of 100)
-    const score = Math.round((correctCount / quiz.questions.length) * 100);
+    // use server score if available, otherwise client-side score
+    let displayScore = Math.round((correctCount / quiz.questions.length) * 100);
+    if (serverScore !== null) displayScore = serverScore;
     return (
       <div className="quiz-page">
         <div className="quiz-container">
           <QuizResult
-            score={score}
+            score={displayScore}
             correct={correctCount}
             wrong={wrongCount}
             total={quiz.questions.length}
