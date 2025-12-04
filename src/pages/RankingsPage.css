@@ -1,3 +1,112 @@
-/* Rankings page styles (placeholder) */
-.ranking-list { padding:0 }
-.ranking-item { display:flex; gap:8px; margin:6px 0 }
+/* RankingsPage.css */
+
+/* 1. 전체 페이지 레이아웃 */
+.rankings-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9; 
+}
+
+/* 2. 컨테이너 (헤더 충돌 방지용 > 선택자 사용) */
+.rankings-page > .container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box; 
+}
+
+/* ★ 3. 랭킹 제목 및 왕관 아이콘 설정 (여기가 수정됨) ★ */
+.rankings-page h2 {
+  /* 텍스트와 아이콘을 세로로 정렬하기 위해 Flex 사용 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 제목 앞에 가상 요소(::before)로 왕관 SVG 넣기 */
+.rankings-page h2::before {
+  content: "";
+  display: block;
+  
+  /* 요청하신 왕관 크기 */
+  width: 87px;
+  height: 87px;
+  
+  /* 왕관과 글자 사이 간격 */
+  margin-bottom: 10px;
+
+  /* SVG 코드를 배경으로 삽입 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='87' height='87' viewBox='0 0 87 87' fill='none'%3E%3Cpath d='M18.125 72.5V65.25H68.875V72.5H18.125ZM18.125 59.8125L13.5031 30.7219C13.3823 30.7219 13.2458 30.7376 13.0935 30.769C12.9413 30.8004 12.8059 30.8149 12.6875 30.8125C11.1771 30.8125 9.89384 30.2833 8.83776 29.2248C7.78167 28.1663 7.25242 26.883 7.25001 25.375C7.24759 23.867 7.77684 22.5838 8.83776 21.5253C9.89867 20.4668 11.1819 19.9375 12.6875 19.9375C14.1931 19.9375 15.4776 20.4668 16.5409 21.5253C17.6042 22.5838 18.1323 23.867 18.125 25.375C18.125 25.7979 18.0791 26.1906 17.9873 26.5531C17.8954 26.9156 17.7903 27.2479 17.6719 27.55L29 32.625L40.3281 17.1281C39.6635 16.6448 39.1198 16.0104 38.6969 15.225C38.274 14.4396 38.0625 13.5938 38.0625 12.6875C38.0625 11.1771 38.5918 9.89263 39.6503 8.83413C40.7088 7.77563 41.992 7.24759 43.5 7.25001C45.008 7.25242 46.2925 7.78167 47.3534 8.83776C48.4143 9.89384 48.9423 11.1771 48.9375 12.6875C48.9375 13.5938 48.726 14.4396 48.3031 15.225C47.8802 16.0104 47.3365 16.6448 46.6719 17.1281L58 32.625L69.3281 27.55C69.2073 27.2479 69.101 26.9156 69.0091 26.5531C68.9173 26.1906 68.8726 25.7979 68.875 25.375C68.875 23.8646 69.4043 22.5801 70.4628 21.5216C71.5212 20.4631 72.8045 19.9351 74.3125 19.9375C75.8205 19.9399 77.105 20.4692 78.1659 21.5253C79.2268 22.5813 79.7548 23.8646 79.75 25.375C79.7452 26.8854 79.2171 28.1699 78.1659 29.2284C77.1146 30.2869 75.8302 30.8149 74.3125 30.8125C74.1917 30.8125 74.0563 30.798 73.9065 30.769C73.7567 30.74 73.6201 30.7243 73.4969 30.7219L68.875 59.8125H18.125ZM24.2875 52.5625H62.7125L65.0688 37.4281L55.5531 41.5969L43.5 25.0125L31.4469 41.5969L21.9313 37.4281L24.2875 52.5625Z' fill='black'/%3E%3C/svg%3E");
+  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* 4. 리스트 스타일 */
+.ranking-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* 5. 카드 디자인 (Figma 스타일 유지) */
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  width: 100%;
+  max-width: 692px;
+  min-height: 115px;
+  
+  padding: 18px 37px;
+  gap: 20px 50px;
+  box-sizing: border-box;
+
+  border-radius: 15px;
+  border: 1px solid #475A5C;
+  background-color: #FFE993; /* 노란색 배경 */
+  color: #0C141C;
+  
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* 6. 폰트 스타일 */
+.rank { 
+  font-size: 24px; 
+  font-weight: 800; 
+  min-width: 40px; 
+  text-align: center; 
+}
+
+.name { 
+  font-size: 20px; 
+  font-weight: 600; 
+  flex-grow: 1; 
+  text-align: center; 
+  word-break: keep-all; 
+}
+
+.score { 
+  font-size: 18px; 
+  font-weight: 500; 
+  color: #475A5C; 
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import { getRankings } from '../api';
-import '../pages/RankingsPage.css';
+import "./RankingsPage.css";
 
 export default function RankingsPage() {
   const [rankings, setRankings] = useState([]);

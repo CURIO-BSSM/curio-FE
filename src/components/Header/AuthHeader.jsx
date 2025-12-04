@@ -1,5 +1,6 @@
 import "./Header.css";
 import Logo from "../../assets/lgo.svg";
+import { Link } from "react-router-dom";
 
 function AuthHeader({ userName, onProfile, onLogout }) {
   return (
@@ -10,7 +11,7 @@ function AuthHeader({ userName, onProfile, onLogout }) {
 
           <nav className="nav">
             <a href="/" className="nav-link">문제 풀러가기</a>
-            <a href="/about" className="nav-link">랭킹</a>
+            <Link to="/rankings" className="nav-link">랭킹</Link>
             <a href="/about" className="nav-link">기록</a>
             <a href="/about" className="nav-link">단원 보기</a>
           </nav>
