@@ -101,7 +101,7 @@ function QuizPage() {
 
   const confirmExit = () => {
     setShowModal(false);
-    navigate("/home");
+    navigate("/main");
   };
 
   const cancelExit = () => {
