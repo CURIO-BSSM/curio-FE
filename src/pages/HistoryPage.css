@@ -1,3 +1,103 @@
-/* History page styles (placeholder) */
-.history-list { list-style:none; padding:0 }
-.history-item { margin:8px 0 }
+/* 1. 전체 페이지 배경 */
+.history-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFDF2; /* 피그마 배경색: 연한 아이보리 */
+}
+
+/* 2. 컨테이너 */
+.history-page > .container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+/* 3. 리스트 레이아웃 */
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 카드 사이 간격 */
+  align-items: center;
+}
+
+/* 4. 카드 디자인 */
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* ★ 안전장치 추가: 제목이 길어져도 점수와 최소 20px 거리를 둠 */
+  gap: 20px; 
+
+  width: 100%;
+  max-width: 700px;
+  height: 120px;
+  padding: 0 40px;
+  box-sizing: border-box;
+
+  background-color: #FFE993; /* 큐리오 노란색 */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s; /* 마우스 올렸을 때 살짝 움직이는 효과 */
+}
+
+/* 마우스 올렸을 때 효과 (선택사항) */
+.history-item:hover {
+  transform: translateY(-2px);
+}
+
+/* 5. 왼쪽 영역 (단원명 + 날짜) */
+.left-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 간격 살짝 조정 */
+  overflow: hidden; /* 글자가 넘치면 숨김 처리 */
+}
+
+/* 단원명 스타일 */
+.chapter-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0C141C;
+  
+  /* 말줄임표 처리 (제목이 너무 길면 ...으로 표시) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 날짜 스타일 */
+.date {
+  font-size: 14px;
+  color: #666666;
+  font-weight: 400;
+}
+
+/* 6. 오른쪽 영역 (정답 개수) */
+.right-info {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0C141C;
+  white-space: nowrap; /* 점수는 줄바꿈 금지 */
+}
+
+.score-label {
+  margin-right: 10px;
+  font-size: 18px; /* 라벨은 조금 작게 */
+}
