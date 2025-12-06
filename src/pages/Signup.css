@@ -1,4 +1,140 @@
-/* Signup page styles (placeholder) */
-.page.signup-page { padding: 24px; }
-.auth-form { display:flex; flex-direction:column; gap:8px; max-width:320px }
-.auth-form input, .auth-form textarea { padding:8px; }
+/* Signup.css */
+
+/*
+* 1. 전체 페이지 컨테이너: 중앙 정렬 및 배경색
+*/
+.signup-page {
+    /* 중앙 정렬을 위해 position: absolute 또는 fixed 사용 (부모의 영향 배제) */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* 화면 가로 전체 */
+    min-height: 100vh;
+    /* 화면 세로 최소 전체 */
+
+    display: flex;
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+
+    background: #FEFCF4;
+    /* 배경색 적용 */
+    box-sizing: border-box;
+    padding: 20px 0;
+    /* 내용이 많아 세로 스크롤 생길 경우를 대비한 패딩 */
+}
+
+/* 중앙 컨테이너 (513px 너비는 로그인 페이지 스펙을 참고하여 임시로 적용) */
+.signup-container {
+    width: 513px;
+    /* 중앙 정렬할 전체 콘텐츠 너비 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FEFCF4;
+}
+
+/*
+* 2. 로고 영역
+*/
+.logo-area {
+    /* 로고와 Name 요소 간 간격: 83px */
+    margin-bottom: 83px;
+    text-align: center;
+}
+
+.signup-logo-img {
+    /* 로고 크기 설정 (로그인 페이지와 동일하게 설정 가정) */
+    width: 180px;
+    height: auto;
+}
+
+/*
+* 3. 폼 (Input & Button 포함)
+*/
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/*
+* 4. 입력 필드 스타일 (Name, ID, Email, Password)
+*/
+.signup-input {
+    /* 사용자 스펙 */
+    display: flex;
+    width: 468px;
+    /* 너비를 맞춰주기 위해 padding 값을 뺀 나머지 width */
+    height: 60px;
+    /* 임시 높이 (패딩 포함 최종 높이는 약 70px) */
+    padding: 18px 17px;
+    /* 좌우 패딩만 적용 (오른쪽 387px 스펙은 너무 크므로 텍스트 공간 확보를 위해 17px로 대체) */
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #475A5C;
+    background: #FFF6CC;
+    font-size: 16px;
+    box-sizing: border-box;
+    /* 패딩과 보더가 width에 포함되도록 */
+    outline: none;
+
+    /* 입력 필드 간 간격: 50px */
+    margin-bottom: 50px;
+}
+
+/* Name 입력 필드 (첫 번째 입력 필드는 위에 로고 간격만 적용) */
+.first-input {
+    /* .signup-input에 이미 50px 간격이 적용되어 있으므로 추가 수정은 필요 없음 */
+}
+
+/* Password 입력 필드 (버튼과의 간격: 81px) */
+.last-input {
+    /* 기존 50px 간격을 81px로 덮어쓰기 */
+    margin-bottom: 81px;
+}
+
+.signup-input::placeholder {
+    color: #475A5C;
+    opacity: 0.8;
+}
+
+/*
+* 5. 회원가입 버튼 스타일
+*/
+.signup-btn {
+    /* 사용자 스펙 */
+    display: flex;
+    width: 468px;
+    /* 입력 필드와 너비 통일 */
+    height: 69.934px;
+    padding: 0 23.311px;
+    /* 수직 정렬을 위해 이 값은 높이에 포함됨 */
+    justify-content: center;
+    align-items: center;
+
+    /* flex: 1 0 0; 이건 button에 부적합하므로 제거 */
+    border-radius: 15px;
+    border: 1px solid #475A5C;
+    background: #FFE993;
+    box-shadow: 0 1.457px 0 0 rgba(17, 27, 43, 0.05);
+
+    /* 추가 스타일 */
+    font-size: 18px;
+    font-weight: bold;
+    color: #475A5C;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.signup-btn:hover {
+    background: #FFD54F;
+}
+
+.signup-btn:disabled {
+    background: #E0E0E0;
+    cursor: not-allowed;
+}
