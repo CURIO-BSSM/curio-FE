@@ -15,7 +15,7 @@ export async function fetchQuiz(unitId) {
 
 export async function Logout() {
   const API_HOST = import.meta.env.VITE_API_HOST || 'https://port-0-curio-be-mimknx4690eeb5bb.sel3.cloudtype.app';
-  const url = `${API_HOST}/auth/logout}`;
+  const url = `${API_HOST}/auth/logout`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("퀴즈 데이터를 불러오지 못했습니다.");
   return res.json();

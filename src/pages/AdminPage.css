@@ -1,4 +1,152 @@
-/* Admin page styles (placeholder) */
-.page.admin-page { padding:24px }
-.admin-form { display:flex; flex-direction:column; gap:8px; max-width:600px }
-.admin-form input, .admin-form textarea { padding:8px }
+/* 전체 페이지 배경 설정 */
+.admin-page {
+  width: 100%;
+  
+  /* 화면 높이에 딱 맞춥니다 (100%) */
+  height: 100vh; 
+  
+  /* 내용이 넘치면 "이 박스 안에서" 스크롤을 만듭니다 */
+  overflow-y: scroll; 
+  
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  /* 맨 밑에 버튼이 잘리지 않도록 여백 확보 */
+  padding-bottom: 150px; 
+}
+
+/* 폼을 감싸는 노란색 박스 */
+.quiz-form-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #FFFBE6; /* 연한 노란색 */
+  padding: 50px;
+  margin-top: 30px;
+  margin-bottom: 50px; /* 아래쪽에도 여백 추가 */
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03); 
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 각 섹션 스타일 */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-label-small {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* 입력 필드들 */
+.custom-select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 14px;
+  color: #555;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 14px;
+  resize: none;
+  outline: none;
+}
+
+/* 보기 리스트 */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.option-radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #3B82F6;
+}
+
+.option-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* 버튼 그룹 */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #EEE;
+}
+
+.btn-cancel {
+  padding: 12px 30px;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-radius: 6px;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 12px 30px;
+  background-color: #3B6496; /* 남색 */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 문제의 그 부분! 확실하게 닫았습니다 */
+.btn-save:hover {
+  background-color: #2c4b70;
+}
