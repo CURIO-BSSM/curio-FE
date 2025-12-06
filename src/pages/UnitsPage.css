@@ -1,4 +1,72 @@
-/* Units page styles (placeholder) */
-.page.units-page { padding: 24px; }
-.units-list { list-style:none; padding:0 }
-.unit-item { margin:8px 0 }
+/* 1. 전체 페이지 설정 */
+.units-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FEFCF4; /* 전체 배경 흰색 */
+}
+
+/* 2. 컨테이너 (중앙 정렬) */
+.units-page > .container {
+  width: 100%;
+  max-width: 900px;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 3. 리스트 스타일 */
+.unit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 4. 카드 디자인 (흰색 박스 + 회색 테두리) */
+.unit-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  
+  width: 100%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+
+  background-color: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 12px;
+}
+
+/* 5. "1.단원" (노란색) */
+.unit-number {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFC85C; /* 이미지의 그 노란색 */
+  margin-bottom: 10px;
+}
+
+/* 6. 제목 스타일 */
+.unit-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #000000;
+  margin: 0 0 15px 0;
+}
+
+/* 7. 설명 텍스트 */
+.unit-desc {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
+}
