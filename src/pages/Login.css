@@ -1,4 +1,208 @@
-/* Login page styles (placeholder) */
-.page.login-page { padding: 24px; }
-.auth-form { display:flex; flex-direction:column; gap:8px; max-width:320px }
-.auth-form input, .auth-form textarea { padding:8px; }
+/* Login.css */
+
+/* 전체 페이지 배경 */
+.login-page {
+    position: absolute;
+    /* 부모 요소의 영향 없이 화면 전체를 덮도록 설정 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* 화면 가로 전체 */
+    height: 100vh;
+    /* 화면 세로 전체 */
+    display: flex;
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    background: #FEFCF4;
+    box-sizing: border-box;
+    overflow-y: auto;
+    /* 화면이 작을 경우 스크롤 허용 */
+}
+
+/* 중앙 컨테이너 */
+.login-container {
+    width: 513px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FEFCF4;
+    margin: 0 auto;
+    /* 혹시 모를 쏠림 방지 */
+}
+
+/* 로고 영역 */
+.logo-area {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.logo-placeholder {
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFE993;
+    text-shadow: 2px 2px 0px #000;
+}
+
+/* 폼 스타일 */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* 공통 Input 스타일 */
+.login-input {
+    display: flex;
+    width: 468px;
+    height: 60px;
+    padding: 0 20px;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #475A5C;
+    background: #FFF8D0;
+    font-size: 16px;
+    color: #475A5C;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.login-input::placeholder {
+    color: #475A5C;
+    opacity: 0.7;
+}
+
+/* 이메일 입력창 */
+.email-input {
+    margin-bottom: 82px;
+}
+
+/* 비밀번호 그룹 */
+.password-group {
+    display: flex;
+    flex-direction: column;
+    width: 468px;
+    margin-bottom: 137px;
+    /* 버튼과의 간격 */
+    position: relative;
+}
+
+.password-input {
+    width: 100%;
+}
+
+/* 비밀번호 찾기 텍스트 */
+.find-pw-link {
+    text-align: right;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #475A5C;
+}
+
+.find-pw-link span {
+    color: #FFA800;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    display: flex;
+    width: 468px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid #475A5C;
+    background: #FFE993;
+    color: #475A5C;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.login-btn:hover {
+    background: #FFD54F;
+}
+
+.login-btn:disabled {
+    background: #E0E0E0;
+    cursor: not-allowed;
+}
+
+/* 회원가입 링크 */
+.signup-link {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #475A5C;
+}
+
+.signup-link span {
+    color: #FFA800;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Login.css */
+
+/* (이전 단계에서 수정한 중앙 정렬 CSS 유지) */
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FEFCF4;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.login-container {
+    width: 513px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FEFCF4;
+    margin: 0 auto;
+}
+
+/* ▼ 로고 영역 스타일 수정 ▼ */
+.logo-area {
+    /* 로고와 입력창 사이 간격 */
+    margin-bottom: 50px;
+    /* 이미지 중앙 정렬을 위해 필수 */
+    text-align: center;
+}
+
+/* 기존 .logo-placeholder 스타일은 삭제합니다. */
+
+/* ▼ 새로 추가: SVG 로고 이미지 크기 제어 ▼ */
+.login-logo-img {
+    /* 원하는 너비로 설정하세요. 예: 150px, 200px 등 */
+    width: 290px;
+    /* 높이는 너비에 맞춰 자동으로 비율 유지 */
+    height: auto;
+    /* 혹시 모를 여백 제거 */
+    display: inline-block;
+}
+
+/* ▲ 로고 영역 스타일 수정 끝 ▲ */
+
+
+/* ... 이하 나머지 폼 스타일은 기존과 동일하게 유지 ... */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* (나머지 CSS 생략) */
