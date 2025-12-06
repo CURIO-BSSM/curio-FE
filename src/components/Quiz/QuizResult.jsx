@@ -9,7 +9,7 @@ function QuizResult({ score = 0, correct = 0, wrong = 0, total = 0, onRetry, onH
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/main"); // main 경로로 이동
-    }, 10000);
+    }, 5000);
 
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 제거
   }, [navigate]);
@@ -22,7 +22,7 @@ function QuizResult({ score = 0, correct = 0, wrong = 0, total = 0, onRetry, onH
         {/* quiz-result-title (text-4xl md:text-5xl font-extrabold text-slate-900) */}
         <h1 className="quiz-result-title">퀴즈 완료!</h1>
         {/* quiz-result-subtitle (text-lg text-slate-500 font-semibold) */}
-        <p className="quiz-result-subtitle">수고하셨습니다! 결과를 확인해보세요<br></br>10초뒤 메인화면으로 넘어갑니다.</p>
+        <p className="quiz-result-subtitle">수고하셨습니다! 결과를 확인해보세요<br></br>5초뒤 메인화면으로 넘어갑니다.</p>
       </div>
 
       {/* quiz-result-card (w-full max-w-5xl bg-white rounded-lg shadow-md overflow-hidden) */}

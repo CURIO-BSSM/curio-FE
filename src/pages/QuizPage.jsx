@@ -89,7 +89,7 @@ function QuizPage() {
       } else {
         setShowResult(true);
       }
-    }, 3000);
+    }, 2500);
   };
 
   // When quiz finishes, submit answers to backend if available
@@ -129,7 +129,7 @@ function QuizPage() {
               setWrongCount(0);
               setShowResult(false);
             }}
-            onHome={() => navigate('/home')}
+            onHome={() => navigate('/main')}
           />
         </div>
       </div>
@@ -172,8 +172,8 @@ function QuizPage() {
           <div className="modal">
             <p>현재까지 푼 문제는 저장되지 않습니다.<br />정말 나가시겠습니까?</p>
             <div className="modal-buttons">
-              <button onClick={confirmExit} className="yes-button">예</button>
               <button onClick={cancelExit} className="no-button">아니오</button>
+              <button onClick={confirmExit} className="yes-button">예</button>
             </div>
           </div>
         </div>
