@@ -7,13 +7,15 @@ function AuthHeader({ userName, onProfile, onLogout }) {
     <header className="app-header auth-header">
       <div className="header-inner">
         <div className="container">
-          <img src={Logo} alt="Docs" className="logo"/>
+          <a href="/main">
+            <img src={Logo} alt="Docs" className="logo"/>
+          </a>
 
           <nav className="nav">
-            <a href="/" className="nav-link">문제 풀러가기</a>
-            <Link to="/rankings" className="nav-link">랭킹</Link>
-            <a href="/about" className="nav-link">기록</a>
-            <a href="/about" className="nav-link">단원 보기</a>
+            <a href="/main" className="nav-link">문제 풀러가기</a>
+            <a href="/rankings" className="nav-link">랭킹</a>
+            <a href="/history" className="nav-link">기록</a>
+            <a href="/units" className="nav-link">단원 보기</a>
           </nav>
         </div>
         <div className="actions">
