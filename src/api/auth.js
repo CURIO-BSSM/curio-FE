@@ -2,7 +2,7 @@
  * Client-side auth helpers.
  * The backend logout is message-only; client must clear local state.
  */
-const API_HOST = import.meta.env.VITE_API_HOST || 'http://0.0.0.0:8000';
+const API_HOST = import.meta.env.VITE_API_HOST || 'https://port-0-curio-be-mimknx4690eeb5bb.sel3.cloudtype.app';
 
 /**
  * Perform logout: try POST to backend (ignore response), then clear client storage.
