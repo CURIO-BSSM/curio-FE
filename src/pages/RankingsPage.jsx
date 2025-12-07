@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
-import { getRankings } from '../api';
+// import { getRankings } from '../api'; // 서버 요청 잠시 끄기
 import "./RankingsPage.css";
 
 export default function RankingsPage() {
@@ -8,11 +8,19 @@ export default function RankingsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 서버에서 진짜 데이터 가져오기
-    getRankings()
-      .then((data) => setRankings(data || []))
-      .catch(() => setRankings([])) // 에러 나면 빈 배열로 처리 (더미 데이터 삭제됨)
-      .finally(() => setLoading(false));
+    // ★ 방금 님이 가져온 실제 데이터 6개! ★
+    const realData = [
+      {"rank":1,"username":"hynu","user_id":1,"score":13},
+      {"rank":2,"username":"psh","user_id":4,"score":10},
+      {"rank":3,"username":"dlqk","user_id":3,"score":3},
+      {"rank":4,"username":"이우린","user_id":6,"score":2},
+      {"rank":5,"username":"asd","user_id":12,"score":1},
+      {"rank":6,"username":"권길현","user_id":10,"score":0}
+    ];
+
+    // 서버 요청 대신 바로 데이터를 넣습니다.
+    setRankings(realData);
+    setLoading(false);
   }, []);
 
   return (
