@@ -41,7 +41,7 @@ export default function AdminPage() {
       }
 
       await axios.post(
-        `${import.meta.env.VITE_API_HOST}/quiz/add`,
+        'https://port-0-curio-be-mimknx4690eeb5bb.sel3.cloudtype.app/quiz/add',
         { 
           unit_id: Number(unitId), 
           content: content, 
@@ -65,10 +65,9 @@ export default function AdminPage() {
 
     } catch (err) {
       console.error('문제 등록 실패:', err);
-      
       const errorDetail = err.response?.data?.detail;
       if (errorDetail === '관리자만 접근할 수 있습니다.') {
-         alert("등록 실패: 관리자 권한이 필요합니다. (DB 역활 확인 필요)");
+         alert("등록 실패: 관리자 권한이 필요합니다. (DB 권한 확인 필요)");
       } else {
          alert(`등록 실패: ${errorDetail || "서버 오류가 발생했습니다."}`);
       }
@@ -83,8 +82,6 @@ export default function AdminPage() {
       
       <div className="quiz-form-container">
         <form onSubmit={handleSubmit} className="quiz-form">
-          
-          
           <div className="form-section">
             <label className="section-label">단원선택</label>
             <select 
@@ -100,7 +97,6 @@ export default function AdminPage() {
             </select>
           </div>
 
-          
           <div className="form-section">
             <label className="section-label">문제 내용 작성</label>
             <div className="input-label-small">문제 제목</div>
@@ -113,7 +109,6 @@ export default function AdminPage() {
             />
           </div>
 
-          
           <div className="form-section">
             <label className="section-label">문제 보기 설정</label>
             <div className="options-list">
@@ -140,7 +135,6 @@ export default function AdminPage() {
             <p className="helper-text">라디오 버튼을 통해서 정답 선택하기</p>
           </div>
 
-          
           <div className="button-group">
             <button type="button" className="btn-cancel" onClick={() => window.location.reload()}>
               취소하기
@@ -149,7 +143,6 @@ export default function AdminPage() {
               {loading ? '저장 중...' : '저장하기'}
             </button>
           </div>
-
         </form>
       </div>
     </div>

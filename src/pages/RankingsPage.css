@@ -1,6 +1,5 @@
 /* RankingsPage.css */
 
-/* 1. 전체 페이지 레이아웃 */
 .rankings-page {
   width: 100%;
   min-height: 100vh;
@@ -10,7 +9,6 @@
   background-color: #f9f9f9; 
 }
 
-/* 2. 컨테이너 */
 .rankings-page > .container {
   width: 100%;
   max-width: 1200px;
@@ -19,11 +17,8 @@
   align-items: center;
   padding: 40px 20px;
   box-sizing: border-box;
-  /* 컨테이너 높이를 화면에 맞추고 싶으면 아래 주석 해제 */
-  /* height: calc(100vh - 80px); */ 
 }
 
-/* 3. 랭킹 제목 및 왕관 아이콘 */
 .rankings-page h2 {
   display: flex;
   flex-direction: column;
@@ -46,7 +41,6 @@
   background-size: contain;
 }
 
-/* 4. 리스트 스타일 (★ 여기가 핵심: 스크롤 추가됨) */
 .ranking-list {
   padding: 10px;
   margin: 0;
@@ -57,13 +51,11 @@
   gap: 20px;
   width: 100%;
 
-  /* 높이가 65vh(화면의 65%)를 넘으면 스크롤 생김 */
-  max-height: 65vh; 
+  max-height: 400px; 
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* ★ 스크롤바 디자인 꾸미기 */
 .ranking-list::-webkit-scrollbar {
   width: 10px;
 }
@@ -72,7 +64,7 @@
   border-radius: 5px;
 }
 .ranking-list::-webkit-scrollbar-thumb {
-  background: #FFC107; /* 노란색 스크롤바 */
+  background: #FFC107; 
   border-radius: 5px;
   border: 1px solid #ddd;
 }
@@ -80,7 +72,6 @@
   background: #FFB300;
 }
 
-/* 5. 카드 디자인 */
 .ranking-item {
   display: flex;
   align-items: center;
@@ -97,12 +88,9 @@
   background-color: #FFE993;
   color: #0C141C;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  
-  /* 카드가 줄어들지 않게 고정 */
   flex-shrink: 0;
 }
 
-/* 6. 폰트 스타일 */
 .rank { 
   font-size: 24px; 
   font-weight: 800; 
