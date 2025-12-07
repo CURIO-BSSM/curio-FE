@@ -50,8 +50,8 @@ export default function LoginPage() {
           <input
             name="email"
             className="login-input email-input"
-            placeholder="ID / Email"
-            autoComplete="username"
+            placeholder="Email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -67,7 +67,6 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <div className="find-pw-link">비밀번호를 잊으셨나요? <span>비밀번호 찾기</span></div>
           </div>
 
           <button type="submit" className="login-btn" disabled={loading}>

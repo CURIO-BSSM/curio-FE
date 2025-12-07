@@ -18,7 +18,7 @@ export default function SignupPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      await signup({ name, id, email, password });
+      await signup({ name, email, password });
       alert('회원가입이 완료되었습니다. 로그인해주세요.');
       navigate('/login');
     } catch (err) {
@@ -79,6 +79,7 @@ export default function SignupPage() {
             placeholder="Email"
             className="signup-input"
             autoComplete="email"
+            type='email'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
