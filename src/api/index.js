@@ -1,8 +1,7 @@
-const API_HOST = import.meta.env.VITE_API_HOST || 'https://port-0-curio-be-mimknx4690eeb5bb.sel3.cloudtype.app';
+const API_HOST = import.meta.env.VITE_API_HOST;
 
 async function request(path, options = {}) {
   const url = `${API_HOST}${path}`;
-  // attach Authorization header automatically when token is present
   const token = (() => {
     try { return localStorage.getItem('token'); } catch (e) { return null; }
   })();

@@ -8,10 +8,9 @@ export default function RankingsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 서버에서 진짜 데이터 가져오기
     getRankings()
       .then((data) => setRankings(data || []))
-      .catch(() => setRankings([])) // 에러 나면 빈 배열로 처리 (더미 데이터 삭제됨)
+      .catch(() => setRankings([]))
       .finally(() => setLoading(false));
   }, []);
 

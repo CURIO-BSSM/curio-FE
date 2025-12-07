@@ -70,3 +70,8 @@
   margin: 0;
   word-break: keep-all;
 }
+.unit-card:hover {
+  border-color: #FFC85C;
+  box-shadow: 0 2px 8px rgba(255, 200, 92, 0.1);
+  cursor: pointer;
+}

@@ -24,7 +24,7 @@ export default function MainPage() {
                 <div className="main-containButton">
                     <div
                         className="main-quiz"
-                        onClick={() => navigate('/quiz')}
+                        onClick={() => navigate('/units')}
                     >
                         <img src={Arrow} alt="Arrow" className="main-arrow"/>
                         <span className="main-quizText">문제풀러가기</span>
@@ -52,15 +52,7 @@ export default function MainPage() {
                             <span className="main-historyText">기록</span>
                         </div>
                     </div>
-                    {/* {loading ? <div>로딩...</div> : (
-                        <ul className="units-list">
-                            {units.map(u => (
-                                <li key={u.id}>
-                                    <Link to={`/quiz?unit=${u.id}`}>{u.name}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    )} */}
+                    {}
                 </div>
             </div>
         </div>

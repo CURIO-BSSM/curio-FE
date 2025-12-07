@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import '../pages/Login.css';
 
-// 로고 파일 경로가 맞는지 꼭 확인하세요!
 import CurioLogoSvg from '../assets/lgo.svg'; 
 
 export default function LoginPage() {
@@ -11,7 +10,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   
-  // AuthContext에서 로그인 함수 가져오기
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -20,19 +18,14 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      // ★ 수정 1: 주석 해제 및 실제 로그인 실행
-      console.log("로그인 시도:", email, password); // 확인용 로그
+      console.log("로그인 시도:", email, password);
       
-      // 1. 백엔드로 로그인 요청
       await login({ email, password }); 
       
-      // 2. 성공 시 메인(또는 랭킹) 페이지로 이동
-      // (이동하고 싶은 주소로 바꾸세요. 예: '/ranking' 또는 '/')
       navigate('/main'); 
 
     } catch (err) {
       console.error('login failed', err);
-      // ★ 수정 2: 사용자에게 에러 알려주기 (alert)
       alert("로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.");
     } finally {
       setLoading(false);
@@ -53,7 +46,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit} className="auth-form">
           
-          {/* 이메일 입력 */}
+          
           <input
             name="email"
             className="login-input email-input"
@@ -64,13 +57,12 @@ export default function LoginPage() {
             required
           />
 
-          {/* 비밀번호 입력 */}
+          
           <div className="password-group">
             <input 
               type="password" 
               className="login-input password-input" 
               placeholder="Password"
-              // ★ 수정 3: 비밀번호 입력 기능 연결 (이게 없으면 비밀번호가 안 보내짐)
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

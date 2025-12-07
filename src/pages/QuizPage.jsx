@@ -33,7 +33,6 @@ function QuizPage() {
 
   const { user } = useAuth();
 
-  // When quiz finishes, submit answers to backend if available
   useEffect(() => {
     if (!showResult) return;
     (async () => {
@@ -48,13 +47,11 @@ function QuizPage() {
         console.log('Submitting answers:', JSON.stringify(payload, null, 2));
         const response = await submitQuiz(payload);
         console.log('Server response:', response);
-        // capture server-side score if available
         if (response && typeof response.score !== 'undefined') {
           setServerScore(response.score);
         }
       } catch (err) {
         console.error('submitQuiz failed', err);
-        // continue with client-side score on error
       }
     })();
   }, [showResult, answers, user]);
@@ -69,12 +66,10 @@ function QuizPage() {
   const handleSubmit = () => {
     setSubmitted(true);
     setTimeout(() => {
-      // check answer: selected is label like 'A', correct_answer is numeric (1-based)
       const q = quiz.questions[currentIndex];
       const labels = ["A", "B", "C", "D", "E"];
-      const selectedIndex = labels.indexOf(selected); // 0-based
+      const selectedIndex = labels.indexOf(selected);
       const selectedOneBased = selectedIndex >= 0 ? selectedIndex + 1 : null;
-      // record answer for submission later
       setAnswers((prev) => [...prev, { question_id: q.id, selected_answer: selectedOneBased }]);
       if (selectedOneBased !== null && selectedOneBased === q.correct_answer) {
         setCorrectCount((c) => c + 1);
@@ -92,7 +87,6 @@ function QuizPage() {
     }, 2500);
   };
 
-  // When quiz finishes, submit answers to backend if available
   
 
   const handleExitClick = () => {
@@ -109,7 +103,6 @@ function QuizPage() {
   };
 
   if (showResult) {
-    // use server score if available, otherwise client-side score
     let displayScore = Math.round((correctCount / quiz.questions.length) * 100);
     if (serverScore !== null) displayScore = serverScore;
     return (
@@ -121,7 +114,6 @@ function QuizPage() {
             wrong={wrongCount}
             total={quiz.questions.length}
             onRetry={() => {
-              // reset quiz
               setCurrentIndex(0);
               setSelected(null);
               setSubmitted(false);

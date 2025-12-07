@@ -12,7 +12,7 @@ function AuthHeader({ userName, onProfile, onLogout }) {
           </a>
 
           <nav className="nav">
-            <a href="/main" className="nav-link">문제 풀러가기</a>
+            <a href="/units" className="nav-link">문제 풀러가기</a>
             <a href="/rankings" className="nav-link">랭킹</a>
             <a href="/history" className="nav-link">기록</a>
             <a href="/units" className="nav-link">단원 보기</a>
