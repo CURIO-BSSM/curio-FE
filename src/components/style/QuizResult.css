@@ -157,3 +157,22 @@
 .button-group {
     display: none;
 }
+
+.button-base {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.button-retry {
+    background-color: #facc15;
+    color: #333;
+}
+
+.button-home {
+    background-color: #64748b;
+    color: white;
+}
