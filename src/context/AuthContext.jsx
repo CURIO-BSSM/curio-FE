@@ -1,12 +1,19 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { login as apiLogin, signup as apiSignup, logout as apiLogout } from '../api';
-import { clientLogout } from '../api/auth';
+import { clientLogout } from '../api/auth'; 
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  // 관리자 이메일 목록
+  const ADMIN_EMAILS = [
+    'admin@bssm.hs.kr', 
+    'teacher@bssm.hs.kr',
+    'test@test.com'
+  ];
 
   useEffect(() => {
     try {
@@ -40,8 +47,7 @@ export function AuthProvider({ children }) {
             }
           }
         }
-      } catch (e) {
-      }
+      } catch (e) {}
 
       if (!isAdmin && res) {
         if (typeof res.is_admin !== 'undefined') isAdmin = !!res.is_admin;
@@ -49,17 +55,17 @@ export function AuthProvider({ children }) {
         else if (res.role) isAdmin = res.role === 'admin' || res.role === 'superuser';
       }
 
-      if (credentials.email) {
+      // ★ 이메일 확인해서 강제 관리자 부여
+      if (credentials.email && ADMIN_EMAILS.includes(credentials.email)) {
         isAdmin = true;
-        console.log("👑 관리자 계정으로 로그인되었습니다:", credentials.email);
       }
 
       const u = res && res.user_id
         ? { 
             id: res.user_id, 
             name: nameFromToken || credentials.email || `user${res.user_id}`, 
-            email: credentials.email,
-            isAdmin
+            email: credentials.email, 
+            isAdmin 
           }
         : null;
 
@@ -80,12 +86,9 @@ export function AuthProvider({ children }) {
   }
 
   async function logout() {
-    try {
-      await apiLogout();
-    } catch (e) {
-    }
-    clientLogout();
-    localStorage.removeItem('is_admin');
+    try { await apiLogout(); } catch (e) {}
+    clientLogout(); 
+    localStorage.removeItem('is_admin'); 
     setUser(null);
   }
 
