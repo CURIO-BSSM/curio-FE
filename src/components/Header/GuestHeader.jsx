@@ -10,7 +10,6 @@ function GuestHeader({ onLogin, onSignup }) {
 
           <nav className="nav">
             <a href="/" className="nav-link">홈</a>
-            <a href="/about" className="nav-link">소개</a>
           </nav>
         </div>
 
